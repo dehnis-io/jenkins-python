@@ -1,0 +1,17 @@
+node {
+    for (int i = 0; i < 2; i++) {
+        stage("Stage #${i}") {
+            echo 'Hello, World!'
+
+            if (i == 0) {
+                //git 'https://your-repo-url.git'
+                git branch: 'main', url: 'https://your-repo-url.git'
+                echo 'Running on stage #0'
+            } else {
+                // put the nam of the job that you want to trigger
+                build job: 'Declarative pipeline'
+                echo 'Running on stage #1'
+            }
+        }
+    }
+}
