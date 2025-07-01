@@ -34,7 +34,7 @@
 
 
 pipeline {
-    agent any
+    agent { label 'linux-grp-a' }
 
     stages {
         stage('WCn') {
